@@ -1,11 +1,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generate = require('./utils/generate.js');
+const generateLogo = require('./utils/generate.js');
 
 const questions = [
 
 {
-type: 'Input',
+type: 'input',
 message: 'enter a set of 3 charachters for your logo',
 name: 'char_text'
 },
@@ -48,7 +48,7 @@ function writeToFile(fileName, data) {
     })
 }
 
-console.log('Gerated logo.sgv');
+console.log('Generated logo.sgv');
 
 //Function to initiate app
 
