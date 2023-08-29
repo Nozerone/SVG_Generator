@@ -1,6 +1,36 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const generateLogo = require('lib/generate.js');
+const inquirer = require("inquirer");
+const fs = require("fs");
+const square = require("./lib/square.js");
+const triangle = require("./lib/triangle.js");
+const circle = require("./lib/circle.js");
+const generate = require('lib/generate.js');
+
+// function generate(data) {
+//   let shape = undefined;
+//   if (data.shape === "square") {
+//     shape = new square(
+//       data.shape_logo,
+//       data.shape_color,
+//       data.char_text,
+//       data.char_color
+//     );
+//   } else if (data.shape === "triangle") {
+//     shape = new triangle(
+//       data.shape_logo,
+//       data.shape_color,
+//       data.char_text,
+//       data.char_color
+//     );
+//   } else {
+//     shape = new circle(
+//       data.shape_logo,
+//       data.shape_color,
+//       data.char_text,
+//       data.char_color
+//     );
+//   }
+//   return shape.render();
+// }
 
 const questions = [
   {
@@ -33,7 +63,7 @@ const questions = [
 //Function to write file
 
 function writeToFile(fileName, data) {
-  var content = generare(data);
+  var content = generate(data);
   fs.writeFile(fileName, content, function (error) {
     if (error) {
       return console.log(error);
@@ -52,4 +82,4 @@ function init() {
   });
 }
 
-// init();
+init();
