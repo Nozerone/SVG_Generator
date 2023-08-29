@@ -1,1 +1,0 @@
-const square = require('../square');

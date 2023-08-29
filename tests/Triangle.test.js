@@ -1,1 +1,0 @@
-const triangle = require('../triangle');
