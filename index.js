@@ -1,9 +1,10 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const square = require("./lib/square.js");
-const triangle = require("./lib/triangle.js");
-const circle = require("./lib/circle.js");
-const generate = require('lib/generate.js');
+const shapes = require("lib/Shapes.js");
+const square = require("lib/Square.js");
+const triangle = require("lib/Triangle.js");
+const circle = require("lib/Circle.js");
+const generate = require("lib/generate.js");
 
 // function generate(data) {
 //   let shape = undefined;
