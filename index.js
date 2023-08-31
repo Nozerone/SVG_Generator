@@ -1,37 +1,11 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const shapes = require("lib/Shapes.js");
-const square = require("lib/Square.js");
-const triangle = require("lib/Triangle.js");
-const circle = require("lib/Circle.js");
-const generate = require("lib/generate.js");
+const shapes = require("./lib/Shapes");
+const square = require("./lib/Square");
+const triangle = require("./lib/Triangle");
+const circle = require("./lib/Circle");
+const generate = require("./lib/generate");
 
-// function generate(data) {
-//   let shape = undefined;
-//   if (data.shape === "square") {
-//     shape = new square(
-//       data.shape_logo,
-//       data.shape_color,
-//       data.char_text,
-//       data.char_color
-//     );
-//   } else if (data.shape === "triangle") {
-//     shape = new triangle(
-//       data.shape_logo,
-//       data.shape_color,
-//       data.char_text,
-//       data.char_color
-//     );
-//   } else {
-//     shape = new circle(
-//       data.shape_logo,
-//       data.shape_color,
-//       data.char_text,
-//       data.char_color
-//     );
-//   }
-//   return shape.render();
-// }
 
 const questions = [
   {
@@ -47,7 +21,7 @@ const questions = [
   },
 
   {
-    type: "listraw",
+    type: "list",
     message: "Please select a shape from the list",
     name: "shape_logo",
     choices: [circle, triangle, square],
