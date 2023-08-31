@@ -1,11 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const shapes = require("./lib/Shapes");
-const square = require("./lib/Square");
-const triangle = require("./lib/Triangle");
-const circle = require("./lib/Circle");
-const generate = require("./lib/generate");
+const { Circle, Square, Triangle } = require("./lib/Shapes");
 
+const generate = require("./lib/generate");
 
 const questions = [
   {
@@ -16,15 +13,15 @@ const questions = [
 
   {
     type: "input",
-    message: "Please enter a hexadecimal number color for the text?",
-    name: "char_Color",
+    message: "Please enter a hexadecimal number or color for the text?",
+    name: "char_color",
   },
 
   {
     type: "list",
     message: "Please select a shape from the list",
     name: "shape_logo",
-    choices: [circle, triangle, square],
+    choices: ["Circle", "Triangle", "Square"],
   },
 
   {
@@ -35,6 +32,18 @@ const questions = [
   },
 ];
 
+
+//Function to initiate app
+
+function init() {
+  inquirer.prompt(questions).then(function (data) {
+    var filename = "logo.svg";
+    writeToFile(filename, data);
+  });
+}
+
+init();
+
 //Function to write file
 
 function writeToFile(fileName, data) {
@@ -43,18 +52,6 @@ function writeToFile(fileName, data) {
     if (error) {
       return console.log(error);
     }
+    console.log("SUCCESS! Generated logo.sgv");
   });
 }
-
-console.log("Generated logo.sgv");
-
-//Function to initiate app
-
-function init() {
-  inquirer.prompt(questions).then(function (data) {
-    var filename = "logo.svg";
-    writeToFile(fileName, data);
-  });
-}
-
-init();
