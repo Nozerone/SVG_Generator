@@ -6,18 +6,6 @@ const generate = require("./lib/generate");
 
 const questions = [
   {
-    type: "input",
-    message: "enter a set of 3 charachters for your svg logo",
-    name: "char_text",
-  },
-
-  {
-    type: "input",
-    message: "Please enter a hexadecimal number or color for the text?",
-    name: "char_color",
-  },
-
-  {
     type: "list",
     message: "Please select a shape from the list",
     name: "shape_logo",
@@ -30,8 +18,19 @@ const questions = [
       "Please enter a hexadecimal number for the color of your chosen shape",
     name: "shape_Color",
   },
-];
 
+  {
+    type: "input",
+    message: "enter a set of 3 charachters for your svg logo",
+    name: "char_text",
+  },
+
+  {
+    type: "input",
+    message: "Please enter a hexadecimal number or color for the text?",
+    name: "char_color",
+  }
+];
 
 //Function to initiate app
 
