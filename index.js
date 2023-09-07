@@ -1,5 +1,7 @@
 const inquirer = require("inquirer");
+
 const fs = require("fs");
+
 const { Circle, Square, Triangle } = require("./lib/Shapes");
 
 const generate = require("./lib/generate");
@@ -9,14 +11,14 @@ const questions = [
     type: "list",
     message: "Please select a shape from the list",
     name: "shape_logo",
-    choices: ["Circle", "Triangle", "Square"],
+    choices: ["circle", "triangle", "square"],
   },
 
   {
     type: "input",
     mesage:
-      "Please enter a hexadecimal number for the color of your chosen shape",
-    name: "shape_Color",
+      "Please enter a hexadecimal number or color for your chosen shape",
+    name: "shape_color",
   },
 
   {
@@ -29,10 +31,10 @@ const questions = [
     type: "input",
     message: "Please enter a hexadecimal number or color for the text?",
     name: "char_color",
-  }
+  },
 ];
 
-//Function to initiate app
+//Prompt Questions
 
 function init() {
   inquirer.prompt(questions).then(function (data) {
@@ -47,7 +49,11 @@ init();
 
 function writeToFile(fileName, data) {
   var content = generate(data);
-  fs.writeFile(fileName, content, function (error) {
+  var svgItem = `<svg width="250" height="250">
+  ${content}
+  <text x="150" y="150" font-size="50" text-anchor="middle" fill="${data.char_color}">${data.char_text}</text>
+</svg> `
+  fs.writeFile(fileName, svgItem, function (error) {
     if (error) {
       return console.log(error);
     }
