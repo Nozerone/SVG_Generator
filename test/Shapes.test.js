@@ -28,7 +28,7 @@ describe("square", () => {
     const shape = new Square();
     shape.setColor("#800000");
     expect(shape.render()).toEqual(
-      `<rect x="80" y="70" width="125" height="125"  fill="#800000"/>`
+      `<rect x="80" y="70" width="125" height="125" fill="#800000"/>`
     );
   });
 });
