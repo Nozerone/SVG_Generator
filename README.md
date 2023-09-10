@@ -2,8 +2,7 @@
   ![License](https://img.shields.io/badge/license-OpenSource-blue)
   # SVG file generator
    ## Description
-   This is a node app that will generate an SVG file based on questions prompted to the user.
-
+   This is a Node.js command-line application that takes in user input to generate a logo and saves as an svg file.
    ## Table of Contents
    * [Installation](#installation)
    * [Usage](#usage)
